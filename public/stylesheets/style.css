@@ -1,0 +1,160 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+header img {
+	float: left;
+}
+
+header h1 {
+	float: left;
+	line-height: 60px;
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+}
+
+header {
+	background: rgba(0, 0, 0, 0.1);
+	height: 60px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.logo:hover h1 {
+	padding-left: 10px;
+}
+
+.logo {
+	width: 500px;
+	float: left;
+}
+
+#location-form {
+	float: right;
+	height: 30px;
+	padding: 15px;
+}
+
+#location-form input {
+	padding: 0 10px;
+	line-height: 30px;
+	width: 250px;
+	margin-right: 20px;
+}
+
+#location-form button {
+	background: rgba(35, 161, 231, 1);
+	height: 30px;
+	padding: 0 10px;
+	color: white;
+	font-weight: 400;
+	cursor: pointer;
+}
+
+#location-form button:hover {
+	background: rgba(155, 201, 241, 1);
+	color: black;
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+}
+
+.container {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.day {
+	float: left;
+	width: 210px;
+	height: 320px;
+	padding: 10px;
+	margin: 10px;
+	background: rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+.day div {
+	margin: 5px 0;
+}
+
+.day .summary {
+	font-weight: 600;
+	font-size: 18px;
+}
+
+#daily-weather:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+#current-weather {
+	text-align: center;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	padding: 20px;
+}
+
+#current-weather img {
+	width: 250px;
+}
+
+#current-weather .summary {
+	font-weight: 600;
+	font-size: 30px;	
+}
+
+#daily-weather {
+	margin-bottom: 30px;
+}
+
+footer {
+	border-top: 5px solid rgba(0, 0, 0, 0.1);
+	background: rgba(0, 0, 0, 0.6);
+	height: 220px;
+}
+
+.technologies {
+	background: white;
+	height: 100px;
+}
+
+.technologies img {
+	margin-top: 20px;
+	height: 60px;
+	opacity: 0.5;
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+}
+
+.technologies img:hover {
+	opacity: 1;
+}
+
+#notification-field {
+	z-index: 10;
+	display: none;
+	position: fixed;
+	bottom: 10%;
+	left: 50%;
+	width: 350px;
+	margin-left: -175px;
+	background: rgba(0, 0, 0, 0.7);
+	height: 60px;
+	line-height: 60px;
+	color: white;
+	text-align: center;
+	font-weight: 400;
+}

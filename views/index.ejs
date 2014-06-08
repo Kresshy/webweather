@@ -1,0 +1,77 @@
+<html>
+<head>
+	<title>Weather</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.1.2/nprogress.min.css">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<a href="/">
+				<div class="logo">
+					<img src="/images/clear-day.png" height="60px" alt="logo"><h1>Weather</h1>
+				</div>
+			</a>
+			<div id="location-form">
+				<input id="location-input" type="text" placeholder="search for your location"/>
+				<button id="location-submit">Search</button>
+			</div>
+		</div>
+	</header>
+	
+	<div class="container">
+		<div id="current-weather">Loading... </div>
+		<div id="daily-weather"></div>
+	</div>
+
+	<div id="notification-field"></div>
+
+	<footer>
+		<div class="technologies">
+			<div class="container">
+				<a href="http://jquery.com/"><img src="http://www.parhasard.be/tutorials/wp-content/uploads/2014/04/jQuery-logo.png"></a>
+				<a href="http://mustache.github.io/"><img src="http://assets.warpspire.com/images/mustache-erb/mustache.png"></a>
+				<a href="http://nodejs.org/"><img src="http://blog.prefabsoft.com/wp-content/uploads/2012/12/Nodejs_logo_light.png"></a>
+				<a href="http://www.w3.org/standards/webdesign/htmlcss"><img src="http://www.w3.org/html/logo/downloads/HTML5_Logo_512.png"></a>
+				<a href="http://www.w3.org/standards/webdesign/htmlcss"><img src="http://gregbriandavis.files.wordpress.com/2013/01/css31.png"></a>
+				<a href="http://expressjs.com/"><img src="http://blog.abaron.net/wp-content/uploads/2013/10/687474703a2f2f662e636c2e6c792f6974656d732f30563253316e304b3169337931633132326730342f53637265656e25323053686f74253230323031322d30342d31312532306174253230392e35392e3432253230414d2e706e67.png"></a>
+				<a href="http://kir-dev.sch.bme.hu/"><img src="http://kir-dev.sch.bme.hu/img/kirdev.png"></a>
+			</div>
+		</div>
+		<div class="container">
+
+		</div>
+	</footer>
+
+	<script id="current-weather-template" type="x-tmpl-mustache">
+		<img src="/images/{{current.icon}}.png" alt="{{current.icon}}"/>
+		<div class="date">{{current.time}}</div>
+		<div class="summary">{{current.summary}}</div>
+		<div class="temp">Temp: <strong>{{current.temperature}}</strong> °C</div>
+		<div class="wind">Wind: <strong>{{current.wind}}</strong> km/h</div>
+		<div class="humidity">Humidity: <strong>{{current.humidity}}</strong> %</div>
+	</script>
+
+	<script id="daily-weather-template" type="x-tmpl-mustache">
+		<h1>Forecast</h1>
+	   	{{#daily.data}}
+	   	<div class="day"> 
+	   		 <img src="/images/{{icon}}.png" alt="{{icon}}"/>
+ 			 <div class="date">{{time}}</div>
+			 <div class="summary">{{summary}}</div>
+			 <div class="mintemp">Min temp: <strong>{{temperatureMin}}</strong> °C</div>
+			 <div class="maxtemp">Max temp: <strong>{{temperatureMax}}</strong> °C</div>
+			 <div class="humidity">Humidity: <strong>{{humidity}}</strong> %</div>
+		</div>
+		{{/daily.data}} 
+	</script>
+	
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.1.2/nprogress.min.js"></script>
+	<script src="/javascripts/blur.js"></script>
+	<script src="/javascripts/main.js"></script>
+</body>
+</html>
