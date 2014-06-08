@@ -10,6 +10,7 @@
     "jade": "*",
     "request": "*",
     "dust": "*",
-    "ejs": "*"
+    "ejs": "*",
+    "bower": "*"
   }
 }
