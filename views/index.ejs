@@ -22,6 +22,7 @@
 	</header>
 	
 	<div class="container">
+		<h1>{{weather.timezone}}</h1>
 		<div id="current-weather">
 			<img ng-src="/images/{{weather.currently.icon}}.png" alt="{{weather.currently.icon}}"/>
 			<div class="date">{{weather.currently.time * 1000 | date:'EEEE'}}</div>
