@@ -4,6 +4,7 @@
   "dependencies": {
     "jquery": "*",
     "normalize-css": "*",
-    "angular": "*"
+    "angular": "*",
+    "angular-resource": "*"
   }
 }

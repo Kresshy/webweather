@@ -1,11 +1,11 @@
 
 var weatherControllers = angular.module('weatherControllers', []);
 
-weatherControllers.controller('weatherController', ['$scope', '$http', 
-  function ($scope, $http) {
+weatherControllers.controller('weatherController', ['$scope', '$http', 'Weather',
+  function ($scope, $http, Weather) {
 
     $scope.getWeather = function(lat, lng) {
-
+      /*
       $http.post('/weather', {
         latitude: lat,
         longitude: lng
@@ -16,7 +16,18 @@ weatherControllers.controller('weatherController', ['$scope', '$http',
         $('#daily-weather').show();      
         
         NProgress.done();
-      });
+      });*/
+
+      Weather.query({latitude: lat, longitude: lng},
+        function(weather) {
+          $scope.weather = weather;
+
+          $('#current-weather').show();
+          $('#daily-weather').show();      
+            
+          NProgress.done();
+        }
+      );
     }
     
     $scope.search = function(city) {

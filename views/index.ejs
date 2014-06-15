@@ -15,7 +15,6 @@
 				</div>
 			</a>
 			<div id="location-form">
-				{{search_query}}
 				<input id="location-input" type="text" placeholder="search for your location"  ng-model="search_query"/>
 				<button ng-click="search(search_query)" id="location-submit">Search</button>
 			</div>
@@ -67,8 +66,9 @@
 	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.1.2/nprogress.min.js"></script>
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular.min.js"></script>
+	<script type="text/javascript" src="/javascripts/angular-resource.min.js"></script>
 	<script type="text/javascript" src="/javascripts/angular-app.js"></script>
 	<script type="text/javascript" src="/javascripts/angular-controllers.js"></script>
-	<!--<script type="text/javascript" src="/javascripts/main.js"></script>-->
+	<script type="text/javascript" src="/javascripts/angular-services.js"></script>
 </body>
 </html>

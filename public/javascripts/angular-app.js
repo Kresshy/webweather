@@ -1,5 +1,6 @@
 
 var weatherApp = angular.module('weatherApp', [
-  'weatherControllers'
+  'weatherControllers',
+  'weatherService'
 ]);
 
