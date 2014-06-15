@@ -1,4 +1,4 @@
-<html>
+<html ng-app="weatherApp" ng-controller="weatherController">
 <head>
 	<title>Weather</title>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
@@ -15,15 +15,33 @@
 				</div>
 			</a>
 			<div id="location-form">
-				<input id="location-input" type="text" placeholder="search for your location"/>
-				<button id="location-submit">Search</button>
+				<input id="location-input" type="text" placeholder="search for your location"  ng-model="search_query"/>
+				<button ng-click="search(search_query)" id="location-submit">Search</button>
 			</div>
 		</div>
 	</header>
 	
 	<div class="container">
-		<div id="current-weather">Loading... </div>
-		<div id="daily-weather"></div>
+		<h1>{{weather.timezone}}</h1>
+		<div id="current-weather">
+			<img ng-src="/images/{{weather.currently.icon}}.png" alt="{{weather.currently.icon}}"/>
+			<div class="date">{{weather.currently.time * 1000 | date:'EEEE'}}</div>
+			<div class="summary">{{weather.currently.summary}}</div>
+			<div class="temp">Temp: <strong>{{weather.currently.temperature}}</strong> °C</div>
+			<div class="wind">Wind: <strong>{{weather.currently.wind}}</strong> km/h</div>
+			<div class="humidity">Humidity: <strong>{{weather.currently.humidity}}</strong> %</div>
+		</div>
+		<div id="daily-weather">
+			<h1>Forecast</h1>
+		   	<div class="day" ng-repeat="day in weather.daily.data"> 
+		   		 <img ng-src="/images/{{day.icon}}.png" alt="{{day.icon}}"/>
+	 			 <div class="date">{{day.time * 1000 | date:'EEEE'}}</div>
+				 <div class="summary">{{day.summary}}</div>
+				 <div class="mintemp">Min temp: <strong>{{day.temperatureMin}}</strong> °C</div>
+				 <div class="maxtemp">Max temp: <strong>{{day.temperatureMax}}</strong> °C</div>
+				 <div class="humidity">Humidity: <strong>{{day.humidity}}</strong> %</div>
+			</div>
+		</div>
 	</div>
 
 	<div id="notification-field"></div>
@@ -44,34 +62,13 @@
 
 		</div>
 	</footer>
-
-	<script id="current-weather-template" type="x-tmpl-mustache">
-		<img src="/images/{{current.icon}}.png" alt="{{current.icon}}"/>
-		<div class="date">{{current.time}}</div>
-		<div class="summary">{{current.summary}}</div>
-		<div class="temp">Temp: <strong>{{current.temperature}}</strong> °C</div>
-		<div class="wind">Wind: <strong>{{current.wind}}</strong> km/h</div>
-		<div class="humidity">Humidity: <strong>{{current.humidity}}</strong> %</div>
-	</script>
-
-	<script id="daily-weather-template" type="x-tmpl-mustache">
-		<h1>Forecast</h1>
-	   	{{#daily.data}}
-	   	<div class="day"> 
-	   		 <img src="/images/{{icon}}.png" alt="{{icon}}"/>
- 			 <div class="date">{{time}}</div>
-			 <div class="summary">{{summary}}</div>
-			 <div class="mintemp">Min temp: <strong>{{temperatureMin}}</strong> °C</div>
-			 <div class="maxtemp">Max temp: <strong>{{temperatureMax}}</strong> °C</div>
-			 <div class="humidity">Humidity: <strong>{{humidity}}</strong> %</div>
-		</div>
-		{{/daily.data}} 
-	</script>
 	
-	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.1.2/nprogress.min.js"></script>
-	<script src="/javascripts/blur.js"></script>
-	<script src="/javascripts/main.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular.min.js"></script>
+	<script type="text/javascript" src="/javascripts/angular-resource.min.js"></script>
+	<script type="text/javascript" src="/javascripts/angular-app.js"></script>
+	<script type="text/javascript" src="/javascripts/angular-controllers.js"></script>
+	<script type="text/javascript" src="/javascripts/angular-services.js"></script>
 </body>
 </html>
